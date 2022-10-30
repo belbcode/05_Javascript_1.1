@@ -10,15 +10,19 @@ var readExt = function(file) {
     while(file[i]!== "." || i < 0) {
         i--;
     }
-    return file.slice(i+1, file.length-1)
+    return file.slice(i+1, file.length)
 }
 
+
 fs.readdir(dirPath, 'utf-8', (err, dir)=> {
-    if (err) console.log(err)
-    dir.forEach((file) => {
-        console.log(file)
-        if(readExt(file) === extArg) {
-            console.log(file)
-        }
-    })
+    if (err) {
+        console.log(err);
+    } else {
+        dir.forEach((file) => {
+            if(readExt(file) === extArg) {
+                console.log(file)
+            }
+        })
+    }
+    console.log("piss")
 })
